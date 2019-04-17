@@ -46,16 +46,19 @@ BucketLists.prototype.updateBucketList = function (originalData) {
   console.log(originalData);
   const data = originalData;
   const updateContainer = document.querySelector('#update-bucket');
+
   const updateForm = document.createElement('form');
+
   updateForm.classList.add('update-form');
-  const formItem = document.createElement('H3');
-  formItem.textContent = 'Item:'
+  const formItem = document.createElement('h3');
+  formItem.textContent = 'Item:';
   const formItemInput =  document.createElement('input');
-  formItemInput.textContent = data.item;
+  formItemInput.placeholder = data.item;
+  console.log(formItemInput);
   updateForm.appendChild(formItem);
   updateForm.appendChild(formItemInput);
   const formDescription = document.createElement('p');
-  formItem.textContent = 'Description:'
+  formDescription.textContent = 'Description:'
   const formDescriptionInput =  document.createElement('input');
   formDescriptionInput.textContent = data.description;
   updateForm.appendChild(formDescription);
@@ -68,6 +71,7 @@ BucketLists.prototype.updateBucketList = function (originalData) {
   updateForm.appendChild(formPriorityInput);
   const updateSubmit = document.createElement('button');
   updateSubmit.classList.add('update-button');
+  updateSubmit.innerHTML = '<< Update >>'; 
   // const submitUpdate = document.querySelector('update-button');
    const modal = document.getElementById('myModal');
 
