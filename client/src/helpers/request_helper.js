@@ -7,6 +7,11 @@ RequestHelper.prototype.get = function () {
     .then((response) => response.json());
 };
 
+RequestHelper.prototype.getIndex = function (id) {
+  return fetch(`${this.url}/${id}`)
+    .then((response) => response.json());
+};
+
 RequestHelper.prototype.post = function (payload) {
   return fetch(this.url, {
     method: 'POST',
@@ -17,7 +22,9 @@ RequestHelper.prototype.post = function (payload) {
 };
 
 RequestHelper.prototype.put = function (payload) {
-  return fetch(this.url, {
+  const id = payload.id;
+  delete payload[id];
+  return fetch(`${this.url}/${id}`, {
     method: 'PUT',
     body: JSON.stringify(payload),
     headers: {'Content-Type': 'application/json'}

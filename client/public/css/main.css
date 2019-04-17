@@ -154,6 +154,19 @@ button.delete-btn {
   padding: 0;
 }
 
+.update-btn {
+  width: 20px;
+  height: 20px;
+  background: url(../images/edit.png);
+  background-size: 20px;
+}
+
+button.update-btn {
+  border: none;
+  padding: 0;
+}
+
+
 div#bucketlist{
   list-style:none;
 }
