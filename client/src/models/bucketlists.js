@@ -45,7 +45,7 @@ BucketLists.prototype.deleteBucketList = function (bucketlistId) {
 BucketLists.prototype.updateBucketList = function (originalData) {
   console.log(originalData);
   const data = originalData;
-  const updateContainer = document.querySelector('update-bucket');
+  const updateContainer = document.querySelector('#update-bucket');
   const updateForm = document.createElement('form');
   updateForm.classList.add('update-form');
   const formItem = document.createElement('H3');
@@ -68,8 +68,24 @@ BucketLists.prototype.updateBucketList = function (originalData) {
   updateForm.appendChild(formPriorityInput);
   const updateSubmit = document.createElement('button');
   updateSubmit.classList.add('update-button');
-  const submitUpdate = document.querySelector('update-button');
-  submitUpdate.addEventListener('click', (evt) => {
+  // const submitUpdate = document.querySelector('update-button');
+   const modal = document.getElementById('myModal');
+
+    // Get the button that opens the modal
+    // var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    const span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+      if (event.target === modal) {
+        modal.style.display = "none";
+      }
+    }
+
+  updateSubmit.addEventListener('click', (evt) => {
      console.dir(evt);
      console.log(evt.target.value);
      // console.log(evt.target.value);

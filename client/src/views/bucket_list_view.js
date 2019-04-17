@@ -54,8 +54,11 @@ BucketListView.prototype.createUpdateButton = function (bucketListId) {
   button.value = bucketListId;
 
   button.addEventListener('click', (evt) => {
-    console.dir(evt.target.value);
+    const modal = document.getElementById('myModal');
+    modal.style.display = "block";
+
     PubSub.publish('BucketListView:bucketlist-update-clicked', evt.target.value);
+
   });
 
   return button;
